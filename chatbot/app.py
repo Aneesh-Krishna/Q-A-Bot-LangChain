@@ -82,11 +82,11 @@ load_dotenv()
 # print(os.environ.get("AZURE_OPENAI_ENDPOINT"))
 
 os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["AZURE_OPENAI_ENDPOINT"] = os.getenv("AZURE_OPENAI_ENDPOINT")
 os.environ["AZURE_OPENAI_API_KEY"] = os.getenv("AZURE_OPENAI_API_KEY")
 os.environ["OPENAI_API_VERSION"] = os.getenv("OPENAI_API_VERSION")
 os.environ["OPENAI_API_TYPE"] = os.getenv("OPENAI_API_TYPE")
-os.environ["LANGCHAIN_TRACING_V2"] = "true"
 
 # Creating chatbot
 prompt = ChatPromptTemplate.from_messages(

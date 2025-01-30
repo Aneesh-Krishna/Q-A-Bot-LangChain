@@ -5,3 +5,6 @@ langserve
 streamlit
 langchain_community
 python-dotenv
+langserve
+fastapi
+uvicorn
