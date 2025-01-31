@@ -5,6 +5,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY")
+os.environ["LANGCHAIN_TRACING_V2"] = "true"
+
 ## Load the document to be queried.
  
 loader=PyPDFLoader('Aneeshkrishna_Resume.pdf')
@@ -71,67 +74,5 @@ from langchain.chains import create_retrieval_chain
 
 retrieval_chain = create_retrieval_chain(retriever,document_chain)
 
-result=retrieval_chain.invoke({"input":"""Update the resume to get the ATS score more than 90% and tell how much ATS score(exact score) does this new resume give. JD: Job Title: Junior Software Developer (Fresher)
-
-Location: [Your Company Location]Job Type: Full-timeExperience: FresherSalary: [As per industry standards]
-
-Job Summary:
-
-We are looking for a highly motivated and enthusiastic Junior Software Developer to join our dynamic team. As a fresher, you will have the opportunity to work on real-world projects and enhance your development skills. You will be involved in designing, developing, and maintaining applications using .NET technologies while following best practices in Object-Oriented Programming (OOP) and version control using Git.
-
-If you have a passion for software development and a willingness to learn new technologies, we encourage you to apply!
-
-Key Responsibilities:
-
-Develop, test, and maintain software applications using .NET framework.
-
-Implement OOP principles to write clean, reusable, and scalable code.
-
-Collaborate with senior developers and participate in code reviews.
-
-Use Git for version control and ensure code is properly maintained.
-
-Troubleshoot and debug applications to enhance performance.
-
-Stay updated with the latest industry trends and technologies.
-
-Required Skills:
-
-Proficiency in .NET (C#, ASP.NET, .NET Core).
-
-Strong understanding of Object-Oriented Programming (OOP) concepts.
-
-Familiarity with Git and version control workflows.
-
-Basic knowledge of SQL databases.
-
-Strong problem-solving and analytical skills.
-
-Good communication and teamwork abilities.
-
-Preferred / Add-on Skills (Good to Have):
-
-Knowledge of React.js for front-end development.
-
-Understanding of cloud platforms such as AWS or Azure.
-
-Exposure to RESTful APIs and web services.
-
-Educational Qualification:
-
-Bachelor’s degree in Computer Science, Information Technology, or a related field.
-
-Why Join Us?
-
-Work on exciting and innovative projects.
-
-Learn from experienced professionals in the industry.
-
-Friendly and supportive work environment.
-
-Opportunities for career growth and skill development.
-
-If you are eager to kick-start your career in software development, apply now and become a part of our growing team!
-
-How to Apply:Send your updated resume to [Your Email/Company Career Page] with the subject “Application for Junior Software Developer (Fresher)”."""})
+result=retrieval_chain.invoke({"input":"""Which word has been mentioned the most number of times in the resume?"""})
 print(result.get("answer","answer not found"))
