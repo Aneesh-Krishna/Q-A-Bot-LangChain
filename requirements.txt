@@ -8,3 +8,9 @@ python-dotenv
 langserve
 fastapi
 uvicorn
+sse_starlette
+bs4
+pypdf
+# faiss
+faiss-cpu
+langchain-ollama
