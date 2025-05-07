@@ -17,3 +17,6 @@ langchain-ollama
 wikipedia
 arxiv
 langchainhub
+flask
+flask_cors
+pydantic
